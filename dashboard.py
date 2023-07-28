@@ -1,9 +1,12 @@
 import os
+import sys
 from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.screen import MDScreen
+from kivy.core.window import Window
 
+Window.size = (600, 400)
 
 KV1 = '''
 MDScreen:
@@ -42,10 +45,8 @@ MDBoxLayout:
         overflow_cls: CustomOverFlowMenu()
         right_action_items:
             [
-            ["home", lambda x: app.callback(x), "Home", "Home"],
-            ["message-star", lambda x: app.callback(x), "Message star", "Message star"],
-            ["message-question", lambda x: app.callback(x), "Message question", "Message question"],
-            ["message-reply", lambda x: app.callback(x), "Message reply", "Message reply"],
+            ["home", lambda x: app.exit_program()],
+            ["message-star", lambda x: app.team_program()],
             ]
 
     MDLabel:
@@ -74,6 +75,16 @@ class Dashboard(MDApp):
     
     def callback(self, instance_action_top_appbar_button):
         print(instance_action_top_appbar_button)
+
+    def team_program(self):
+        print("open team...")
+        os.system("python team.py")
+    
+    def exit_program(self):
+        print("Exiting the program...")
+        sys.exit(0)
+        
+   
     def run_program(self):
         os.system('python link.py')
 
