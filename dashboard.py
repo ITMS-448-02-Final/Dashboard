@@ -11,24 +11,24 @@ Window.size = (600, 400)
 KV1 = '''
 MDScreen:
     MDRaisedButton:
-        text: "Extract all the URLs from the Webpage"
+        text: "      URL OSINT      "
         pos_hint: {"center_x": 0.5, "center_y": 0.7}
         md_bg_color: app.theme_cls.primary_dark
         on_press: app.run_program()
         size_hint: 0.1, 0.1
     
     MDRaisedButton:
-        text: "Facebook OSINT"
+        text: "Username OSINT"
         pos_hint: {"center_x": 0.5, "center_y": 0.55}
         md_bg_color: app.theme_cls.primary_dark
-        on_press: app.run_program()
+        on_press: app.run_username()
         size_hint: 0.1, 0.1
     
     MDRaisedButton:
-        text: "Twitter OSINT"
+        text: "Web Search - Phone Lookup - IP Lookup"
         pos_hint: {"center_x": 0.5, "center_y": 0.40}
         md_bg_color: app.theme_cls.primary_dark
-        on_press: app.run_program()
+        on_press: app.run_osint()
         size_hint: 0.1, 0.1
 '''
 
@@ -88,5 +88,11 @@ class Dashboard(MDApp):
     def run_program(self):
         os.system('python link.py')
 
+    def run_username(self):
+        os.system('python SherlockGui.py')
+
+    def run_osint(self):
+        os.system('python osint.py')
+        
 
 Dashboard().run()
