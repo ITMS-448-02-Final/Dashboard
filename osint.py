@@ -8,12 +8,13 @@ from utils import (
     ip_lookup,
     phonenumber_lookup,
     websearch,
+    ig_scrape,
 )
 from helper import printer, url_helper
 2
 if os.name == "nt":
     os.system("cls")
-    os.system("title H4X-Tools")
+    os.system("ITMS 448 - 548")
 if os.name == "posix":
     os.system("clear")
 
@@ -68,10 +69,24 @@ def print_menu():
     """
     print(Fore.CYAN)
     print("[1] Web Search           ||   [2] Phone Lookup")
-    print("[3] IP Lookup            ||   [4] Exit")       
+    print("[3] IP Lookup            ||   [4] Instagram Scraper")   
+    print("[5] Exit")        
     print("\n")
 
 
+def handle_ig_scrape():
+    """
+    Handles the IG Scrape util.
+
+    Note, you have to log in to Instagram in order to use this util.
+    """
+    printer.warning("NOTE! You have to log in to Instagram everytime in order to use this util.")
+    printer.warning("I suggest you to create a new account for this purpose.")
+    username = str(input("Your username : "))
+    password = getpass("Your password : ")
+    target = str(input("Enter a target username : \t")).replace(" ", "_")
+    ig_scrape.Scrape(username, password, target)
+    time.sleep(1)
 
 
 
@@ -107,6 +122,7 @@ menu_options = {
     "1": handle_web_search,
     "2": handle_phone_lookup,
     "3": handle_ip_lookup,
+    "4": handle_ig_scrape,
 }
 
 
@@ -126,7 +142,7 @@ def __main__():
         if a in menu_options:
             menu_options[a]()  # Call the corresponding function based on the selected option
             time.sleep(3)  # Sleep so user has time to see results.
-        elif a == "4":
+        elif a == "5":
             printer.warning("Exiting...")
             printer.info("Thanks for using ITMS 448 - 548 - OSINT")
             time.sleep(1)

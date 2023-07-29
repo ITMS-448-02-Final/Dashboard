@@ -23,10 +23,17 @@ MDScreen:
         md_bg_color: app.theme_cls.primary_dark
         on_press: app.run_username()
         size_hint: 0.1, 0.1
+
+    MDRaisedButton:
+        text: "Instagram Scraper "
+        pos_hint: {"center_x": 0.5, "center_y": 0.40}
+        md_bg_color: app.theme_cls.primary_dark
+        on_press: app.run_username()
+        size_hint: 0.1, 0.1
     
     MDRaisedButton:
         text: "Web Search - Phone Lookup - IP Lookup"
-        pos_hint: {"center_x": 0.5, "center_y": 0.40}
+        pos_hint: {"center_x": 0.5, "center_y": 0.25}
         md_bg_color: app.theme_cls.primary_dark
         on_press: app.run_osint()
         size_hint: 0.1, 0.1
